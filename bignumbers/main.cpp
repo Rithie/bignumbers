@@ -42,6 +42,33 @@ void zera( int *vet ){
     
 }
 //
+void somaDoisNumeros(int *sum, int *v1, int *v2){
+    
+    int tempSum = 0;
+    int carry1 = 0;
+    
+    
+    for(int i = 7; i >= 0; i--)
+    {
+        tempSum = v1[i] + v2[i] + carry1; //sum of 10 digits
+        
+        if( i == 0)
+            sum[i] = tempSum; //No carry in case of most significant digit
+        else
+            sum[i] = tempSum % 10; //Extra digits to be 'carried over'
+        
+        carry1 = tempSum/10; //pega parte inteira
+    }
+    //logs
+    /*
+     std::cout <<"soma: ";
+     for (int i=0; i<8; i++) {
+     
+     std::cout << sum[i];
+     }
+     std::cout <<"\n";
+     */
+}
 
 //função que acumula valores no vetor somados com um segundo vetor
 void acc(int *acc, int *v1){
