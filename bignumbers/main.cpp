@@ -12,7 +12,7 @@
 #include <fstream>
 #include <ctype.h>       // isalpha()
 
-// jhonatanifet2011@gmail.com
+
 /*************************************************************/
 /* Aluno: Fulano de Tal */
 /* Matrícula: 9999-17 */
