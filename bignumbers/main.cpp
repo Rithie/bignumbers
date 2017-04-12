@@ -37,7 +37,7 @@ FILE *saida; /* arquivo de saida aberto */
 void zera( int *vet ){
     int *p;
     for (p = vet; *p != '\0'; p++){
-            *p = 0;
+            *p = -1;
     }
     
 }
@@ -106,9 +106,13 @@ int main(int argc, const char * argv[]) {
     char sinal1, sinal2;
     char num1[50];
     char num2[50];
+    int bigNum1[50];
     
     
     /*----- Primeiros comandos do seu programa -----*/
+    
+    ::zera(bigNum1);
+    
     /* Leitura do nome do arquivo de entrada */
     printf("Digite o nome do arquivo de entrada: ");
     fgets(buffer, MAX_NOME_ARQ, stdin);
@@ -141,7 +145,7 @@ int main(int argc, const char * argv[]) {
                     }
                     
                 case 1:
-                    if ( ch == '+' ) {
+                    if ( ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%' ) {
                         printf("\noperador %c", ch);
                         op = ch;
                         i=1;
@@ -152,6 +156,7 @@ int main(int argc, const char * argv[]) {
                         printf("\nnumero %d",  n = ch - '0');
                         tam++;
                         num1[i++] = ch;
+                        bigNum1[i++] = (ch - '0');
                     }
                     break;
                 case 2:
@@ -167,7 +172,6 @@ int main(int argc, const char * argv[]) {
                         printf("\nnumero %d",  n = ch - '0');
                         tam++;
                         num2[i++] = ch;
-                        //strcpy(&num1[0], "+10");
                     }
                     break;
             }
@@ -193,7 +197,7 @@ int main(int argc, const char * argv[]) {
         saida = stdout;
     }
 
-    return -1;
+    return 0;
 }
 
 
